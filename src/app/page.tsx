@@ -21,8 +21,9 @@ export default function LoginPage() {
       const res = await fetch("https://new-backend-ev58.onrender.com/auth/login", {
         method: "POST",
         headers:{"Content-Type":"application/x-www-form-urlencoded",},
+        credentials:"include",
         body: formData.toString(),
-      });
+    });
 
       const data = await res.json();
 

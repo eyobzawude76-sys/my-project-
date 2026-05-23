@@ -12,16 +12,19 @@ export default function LoginPage() {
   const handleLogin = async () => {
     setLoading(true);
     setError("");
-
-    const formData = new FormData();
+    const formData=new URLSearchParams();
+  
     formData.append("username", email);
     formData.append("password", password);
 
     try {
       const res = await fetch("https://new-backend-ev58.onrender.com/auth/login", {
         method: "POST",
-        body: formData,
-      });
+        headers:{"Content-Type":"application/x-www-form-urlencoded",},
+        credentials:"include",
+        body: formData.toString(),
+    });
+
 
       const data = await res.json();
 
