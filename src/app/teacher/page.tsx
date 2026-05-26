@@ -26,7 +26,7 @@ export default function TeacherPage() {
   }, []);
 
   const fetchStudents = async () => {
-    const res = await fetch("https://new-backend-ev58.onrender.com/teacher/my-students", {
+    const res = await fetch("https://chatroom-going-drew.ngrok-free.dev/teacher/my-students", {
       headers: { Authorization: `Bearer ${getToken()}` }
     });
     const data = await res.json();
@@ -34,7 +34,7 @@ export default function TeacherPage() {
   };
 
   const fetchGrades = async () => {
-    const res = await fetch("https://new-backend-ev58.onrender.com/teacher/my-grades", {
+    const res = await fetch("https://chatroom-going-drew.ngrok-free.dev/teacher/my-grades", {
       headers: { Authorization: `Bearer ${getToken()}` }
     });
     const data = await res.json();
@@ -81,7 +81,7 @@ export default function TeacherPage() {
       return;
     }
 
-    const res = await fetch("https://new-backend-ev58.onrender.com/teacher/grades", {
+    const res = await fetch("https://chatroom-going-drew.ngrok-free.dev/teacher/grades", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -42,7 +42,7 @@ export default function RegisterPage() {
 
   const fetchCourses = async () => {
     try {
-      const res = await fetch("https://new-backend-ev58.onrender.com/public/courses");
+      const res = await fetch("https://chatroom-going-drew.ngrok-free.dev/public/courses");
       const data = await res.json();
       setCourses(Array.isArray(data) ? data : []);
     } catch (e) {
@@ -100,7 +100,7 @@ export default function RegisterPage() {
     }
 
     try {
-      const userRes = await fetch("https://new-backend-ev58.onrender.com/auth/register", {
+      const userRes = await fetch("https://chatroom-going-drew.ngrok-free.dev/auth/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -120,7 +120,7 @@ export default function RegisterPage() {
 
       const userData = await userRes.json();
 
-      const stuRes = await fetch("https://new-backend-ev58.onrender.com/student/register", {
+      const stuRes = await fetch("https://chatroom-going-drew.ngrok-free.dev/student/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -148,7 +148,7 @@ export default function RegisterPage() {
       const formData = new FormData();
       formData.append("username", form.email);
       formData.append("password", form.password);
-      const loginRes = await fetch("https://new-backend-ev58.onrender.com/auth/login", {
+      const loginRes = await fetch("https://chatroom-going-drew.ngrok-free.dev/auth/login", {
         method: "POST",
         body: formData,
       });
@@ -182,7 +182,7 @@ export default function RegisterPage() {
       formData.append("bank_receipt", files.bank_receipt);
 
       const res = await fetch(
-        `https://new-backend-ev58.onrender.com/student/upload-documents?email=${encodeURIComponent(form.email)}`,
+        `https://chatroom-going-drew.ngrok-free.dev/student/upload-documents?email=${encodeURIComponent(form.email)}`,
         { method: "POST", body: formData }
       );
 

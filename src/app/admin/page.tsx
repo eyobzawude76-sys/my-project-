@@ -42,7 +42,7 @@ export default function AdminPage() {
 
   const fetchRegistrations = async () => {
     const res = await fetch(
-      "https://new-backend-ev58.onrender.com/admin/registrations?status=pending",
+      "https://chatroom-going-drew.ngrok-free.dev/admin/registrations?status=pending",
       { headers }
     );
     const data = await res.json();
@@ -50,19 +50,19 @@ export default function AdminPage() {
   };
 
   const fetchCourses = async () => {
-    const res = await fetch("https://new-backend-ev58.onrender.com/admin/courses", { headers });
+    const res = await fetch("https://chatroom-going-drew.ngrok-free.dev/admin/courses", { headers });
     const data = await res.json();
     setCourses(Array.isArray(data) ? data : []);
   };
 
   const fetchTeachers = async () => {
-    const res = await fetch("https://new-backend-ev58.onrender.com/admin/teachers", { headers });
+    const res = await fetch("https://chatroom-going-drew.ngrok-free.dev/admin/teachers", { headers });
     const data = await res.json();
     setTeachers(Array.isArray(data) ? data : []);
   };
 
   const fetchAllCourses = async () => {
-    const res = await fetch("https://new-backend-ev58.onrender.com/public/courses");
+    const res = await fetch("https://chatroom-going-drew.ngrok-free.dev/public/courses");
     const data = await res.json();
     setAllCourses(Array.isArray(data) ? data : []);
     const depts = [...new Set(data.map((c: any) => c.department))] as string[];
@@ -71,7 +71,7 @@ export default function AdminPage() {
 
   const approveStudent = async (id: string, classAssigned: string) => {
     await fetch(
-      `https://new-backend-ev58.onrender.com/admin/registrations/${id}/approve?class_assigned=${classAssigned}`,
+      `https://chatroom-going-drew.ngrok-free.dev/admin/registrations/${id}/approve?class_assigned=${classAssigned}`,
       { method: "PATCH", headers }
     );
     setShowModal(false);
@@ -81,7 +81,7 @@ export default function AdminPage() {
   const rejectStudent = async (id: string) => {
     if (!rejectReason) { alert("Sababaa galchi!"); return; }
     await fetch(
-      `https://new-backend-ev58.onrender.com/admin/registrations/${id}/reject?reason=${rejectReason}`,
+      `https://chatroom-going-drew.ngrok-free.dev/admin/registrations/${id}/reject?reason=${rejectReason}`,
       { method: "PATCH", headers }
     );
     setShowModal(false);
@@ -96,7 +96,7 @@ export default function AdminPage() {
       return;
     }
 
-    const res = await fetch("https://new-backend-ev58.onrender.com/admin/teachers", {
+    const res = await fetch("https://chatroom-going-drew.ngrok-free.dev/admin/teachers", {
       method: "POST",
       headers,
       body: JSON.stringify(newTeacher),
@@ -179,21 +179,21 @@ export default function AdminPage() {
                     <p className="font-semibold text-gray-700 mb-2">📁 Documents:</p>
                     <div className="flex gap-2 flex-wrap">
                       {reg.national_id_photo ? (
-                        <a href={`https://new-backend-ev58.onrender.com/${reg.national_id_photo.replace(/\\/g, '/')}`}
+                        <a href={`https://chatroom-going-drew.ngrok-free.dev/${reg.national_id_photo.replace(/\\/g, '/')}`}
                           target="_blank"
                           className="bg-blue-100 text-blue-700 px-3 py-1 rounded-lg text-sm">
                           🪪 National ID
                         </a>
                       ) : null}
                       {reg.grade12_result ? (
-                        <a href={`https://new-backend-ev58.onrender.com/${reg.grade12_result.replace(/\\/g, '/')}`}
+                        <a href={`https://chatroom-going-drew.ngrok-free.dev/${reg.grade12_result.replace(/\\/g, '/')}`}
                           target="_blank"
                           className="bg-green-100 text-green-700 px-3 py-1 rounded-lg text-sm">
                           📄 Kutaa 12
                         </a>
                       ) : null}
                       {reg.bank_receipt ? (
-                        <a href={`https://new-backend-ev58.onrender.com/${reg.bank_receipt.replace(/\\/g, '/')}`}
+                        <a href={`https://chatroom-going-drew.ngrok-free.dev/${reg.bank_receipt.replace(/\\/g, '/')}`}
                           target="_blank"
                           className="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-lg text-sm">
                           🏦 Bank Receipt

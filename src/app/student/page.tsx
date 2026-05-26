@@ -32,7 +32,7 @@ export default function StudentPage() {
 
     try {
       const res = await fetch(
-        `https://new-backend-ev58.onrender.com/student/my-result?semester=${semester}`,
+        `https://chatroom-going-drew.ngrok-free.dev/student/my-result?semester=${semester}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -62,7 +62,7 @@ export default function StudentPage() {
   const downloadResult = () => {
     const token = getToken();
 
-    const url = `https://new-backend-ev58.onrender.com/student/download-result?semester=${semester}&token=${token}`;
+    const url = `https://chatroom-going-drew.ngrok-free.dev/student/download-result?semester=${semester}&token=${token}`;
 
     window.open(url, "_blank");
   };
