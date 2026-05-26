@@ -29,7 +29,7 @@ export default function CommitteePage() {
   const fetchGrades = async () => {
     try {
       const res = await fetch(
-        "https://chatroom-going-drew.ngrok-free.dev/committee/pending-grades",
+        "https://new-backend-ev58.onrender.com/committee/pending-grades",
         { headers: { Authorization: `Bearer ${getToken()}` } }
       );
       const data = await res.json();
@@ -40,7 +40,7 @@ export default function CommitteePage() {
   const fetchStudents = async () => {
     try {
       const res = await fetch(
-        "https://chatroom-going-drew.ngrok-free.dev/committee/all-students",
+        "https://new-backend-ev58.onrender.com/committee/all-students",
         { headers: { Authorization: `Bearer ${getToken()}` } }
       );
       const data = await res.json();
@@ -51,7 +51,7 @@ export default function CommitteePage() {
   // Koomiteen yeroo eeyyamu (Approve) dabatumaan backend irratti calculate godha
   const approveGrade = async (id: string) => {
     try {
-      const res = await fetch(`https://chatroom-going-drew.ngrok-free.dev/committee/grades/${id}/approve`, {
+      const res = await fetch(`https://new-backend-ev58.onrender.com/committee/grades/${id}/approve`, {
         method: "PATCH",
         headers: { Authorization: `Bearer ${getToken()}` }
       });
@@ -69,7 +69,7 @@ export default function CommitteePage() {
     const reason = prompt("Sababaa reject:");
     if (!reason) return;
     await fetch(
-      `https://chatroom-going-drew.ngrok-free.dev/committee/grades/${id}/reject?reason=${reason}`,
+      `https://new-backend-ev58.onrender.com/committee/grades/${id}/reject?reason=${reason}`,
       { method: "PATCH", headers: { Authorization: `Bearer ${getToken()}` } }
     );
     fetchGrades();
@@ -108,7 +108,7 @@ export default function CommitteePage() {
 
       // Backend irratti daandii approve kee san waama
       const res = await fetch(
-        `https://chatroom-going-drew.ngrok-free.dev/committee/grades/${studentGrade._id}/approve`,
+        `https://new-backend-ev58.onrender.com/committee/grades/${studentGrade._id}/approve`,
         { method: "PATCH", headers: { Authorization: `Bearer ${getToken()}` } }
       );
 

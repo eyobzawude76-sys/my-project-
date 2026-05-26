@@ -18,7 +18,7 @@ export default function LoginPage() {
     formData.append("password", password);
 
     try {
-      const res = await fetch("https://chatroom-going-drew.ngrok-free.dev/auth/login", {
+      const res = await fetch("https://new-backend-ev58.onrender.com/auth/login", {
         method: "POST",
         headers:{"Content-Type":"application/x-www-form-urlencoded",},
         credentials:"include",

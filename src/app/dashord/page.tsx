@@ -27,7 +27,7 @@ export default function AdminPage() {
 
   const fetchRegistrations = async () => {
     const res = await fetch(
-      "https://chatroom-going-drew.ngrok-free.dev/admin/registrations?status=pending",
+      "https://new-backend-ev58.onrender.com/admin/registrations?status=pending",
       { headers }
     );
     const data = await res.json();
@@ -35,14 +35,14 @@ export default function AdminPage() {
   };
 
   const fetchCourses = async () => {
-    const res = await fetch("https://chatroom-going-drew.ngrok-free.dev/admin/courses", { headers });
+    const res = await fetch("https://new-backend-ev58.onrender.com/admin/courses", { headers });
     const data = await res.json();
     setCourses(data);
   };
 
   const approveStudent = async (id: string, classAssigned: string) => {
     await fetch(
-      `https://chatroom-going-drew.ngrok-free.dev/admin/registrations/${id}/approve?class_assigned=${classAssigned}`,
+      `https://new-backend-ev58.onrender.com/admin/registrations/${id}/approve?class_assigned=${classAssigned}`,
       { method: "PATCH", headers }
     );
     fetchRegistrations();
@@ -52,14 +52,14 @@ export default function AdminPage() {
     const reason = prompt("Sababaa reject:");
     if (!reason) return;
     await fetch(
-      `https://chatroom-going-drew.ngrok-free.dev/admin/registrations/${id}/reject?reason=${reason}`,
+      `https://new-backend-ev58.onrender.com/admin/registrations/${id}/reject?reason=${reason}`,
       { method: "PATCH", headers }
     );
     fetchRegistrations();
   };
 
   const createCourse = async () => {
-    await fetch("https://chatroom-going-drew.ngrok-free.dev/admin/courses", {
+    await fetch("https://new-backend-ev58.onrender.com/admin/courses", {
       method: "POST",
       headers,
       body: JSON.stringify(newCourse),
